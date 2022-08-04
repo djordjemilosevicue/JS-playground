@@ -1,0 +1,2 @@
+# JS-playground
+Learning JS
