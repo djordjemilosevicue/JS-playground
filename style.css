@@ -28,6 +28,19 @@ h1 {
     font-size: 45px;
     margin-bottom: 60px;
 }
+/* -------------- CUSTOM CLASSES -------------- */
+.po-none {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+}
 /* =================================== DRUM KIT =================================== */
 .drum-container {
     width: 100%;
@@ -37,13 +50,12 @@ h1 {
     justify-content: center;
     gap: 30px;
     margin: auto;
-
 }
 .key {
     width: 130px;
     height: 140px;
     padding: 10px 20px;
-    border: 10px solid black;
+    border: 10px solid rgb(36, 22, 85);
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -51,6 +63,10 @@ h1 {
     gap: 20px;
     text-transform: uppercase;
     text-align: center;
+    cursor: pointer;
+    background-color: rgb(76, 76, 76);
+    box-shadow: 0 0 13px 5px rgb(97, 33, 154);
+    transition: all .07s;
 }
 kbd {
     font-size: 35px;
@@ -60,4 +76,13 @@ kbd {
     font-size: 14px;
     font-style: italic;
     color: rgb(226, 223, 223);
+}
+.playing {
+    transform: scale(1.2);
+    border-color: aqua;
+    box-shadow: 0 0 10px aqua;
+}
+audio {
+    width: 100px;
+    height: 50px;
 }

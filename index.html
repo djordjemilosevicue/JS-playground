@@ -8,60 +8,71 @@
     <title>Document</title>
 </head>
 <body>
+<!-- DRUM KIT -->
     <section id="drum-kit">
         <h1>Drum Kit</h1>
 
         <div class="drum-container">
 
-            <div class="key">
+            <div class="key" data-key="65">
                 <kbd>a</kbd>
                 <span class="sound">clap</span>
             </div>
 
-            <div class="key">
+            <div class="key" data-key="83">
                 <kbd>s</kbd>
                 <span class="sound">hihat</span>
             </div>
 
-            <div class="key">
+            <div class="key" data-key="68">
                 <kbd>d</kbd>
                 <span class="sound">kick</span>
             </div>
 
-            <div class="key">
+            <div class="key" data-key="70">
                 <kbd>f</kbd>
                 <span class="sound">openhat</span>
             </div>
 
-            <div class="key">
+            <div class="key" data-key="71">
                 <kbd>g</kbd>
                 <span class="sound">boom</span>
             </div>
 
-            <div class="key">
+            <div class="key" data-key="72">
                 <kbd>h</kbd>
                 <span class="sound">ride</span>
             </div>
 
-            <div class="key">
+            <div class="key" data-key="74">
                 <kbd>j</kbd>
                 <span class="sound">snare</span>
             </div>
 
-            <div class="key">
+            <div class="key" data-key="75">
                 <kbd>k</kbd>
                 <span class="sound">tom</span>
             </div>
 
-            <div class="key">
+            <div class="key" data-key="76">
                 <kbd>l</kbd>
                 <span class="sound">tink</span>
             </div>
 
         </div>
+<!-- audio -->
+<audio data-key="65" src="./drum-kit/clap.wav"></audio>
+<audio data-key="83" src="./drum-kit/hihat.wav"></audio>
+<audio data-key="68" src="./drum-kit/kick.wav"></audio>
+<audio data-key="70" src="./drum-kit/openhat.wav"></audio>
+<audio data-key="71" src="./drum-kit/boom.wav"></audio>
+<audio data-key="72" src="./drum-kit/ride.wav"></audio>
+<audio data-key="74" src="./drum-kit/snare.wav"></audio>
+<audio data-key="75" src="./drum-kit/tom.wav"></audio>
+<audio data-key="76" src="./drum-kit/tink.wav"></audio>
 
     </section>
-
+<!-- END OF DRUM KIT -->
     <section></section>
 
     <section></section>
@@ -86,6 +97,21 @@
 
 
 
-<script src="./app.js"></script>
-</body>
+<script>
+    function playSound(e) {
+	const audio = document.querySelector('audio[data-key="${e.keyCode}"]');
+	const key = document.querySelector('.key[data-key="${e.keyCode}"]');
+	if (!audio) return;
+	audio.currentTime = 0;
+	audio.play();
+	key.classList.add('playing');
+}
+function removeTransition(e) {
+	if (e.propertyName !== 'transform') return;
+	this.classList.remove('playing');
+}
+const keys = document.querySelectorAll('.key');
+keys.forEach(key => key.addEventListener('transitioned', removeTransition));
+window.addEventListener('keydown', playSound);
+</script></body>
 </html>
