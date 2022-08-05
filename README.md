@@ -1,4 +1,2 @@
 # uFTY's repo.
-HTML
-CSS
-JS
+HTML / CSS / JS
