@@ -1,2 +1,4 @@
-# JS-playground
-Learning JS
+# uFTY's repo.
+HTML
+CSS
+JS
